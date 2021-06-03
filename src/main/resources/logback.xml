@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true" scan="false" scanPeriod="10 minutes">
+
+	<property name="rollindFilesDir" value="../old-logs" />
+
+	<property name="fileName" value="../log/app.log" />
+
+	<property name="errorFileName" value="../log/error.log" />
+
+	<property name="filePattern"
+		value="${rollindFilesDir}/%d{yyyy-MM-dd}_app.log.zip" />
+
+	<property name="errorFilePattern"
+		value="${rollindFilesDir}/errors/%d{yyyy-MM-dd_HH}_error.log" />
+
+	<property name="errorFileEncoderPattern"
+		value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n" />
+
+	<property name="rollingFilePatternLayoutPattern"
+		value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level - %msg%n" />
+
+	<property name="consoleLayoutPattern"
+		value="%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %gray(%logger) - %msg%n" />
+
+
+	<!-- APPENDERS -->
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${consoleLayoutPattern}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="LOG_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${fileName}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${filePattern}</fileNamePattern>
+			<maxHistory>120</maxHistory>
+			<totalSizeCap>3GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${rollingFilePatternLayoutPattern}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+	</appender>
+
+	<appender name="ERROR_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${errorFileName}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${errorFilePattern}</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<totalSizeCap>1GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${errorFileEncoderPattern}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+	</appender>
+
+	<!-- LOGGERS -->
+	
+	<logger name="org.hibernate" level="warn" additivity="true">
+		<appender-ref ref="LOG_FILE" />
+	</logger>
+	
+	<logger name="org.springframework" level="warn" additivity="true">
+		<appender-ref ref="LOG_FILE" />
+	</logger>
+
+	<logger name="top.jalva.ticket" level="trace">
+		<appender-ref ref="LOG_FILE" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<root level="warn">
+		<appender-ref ref="ERROR_FILE" />
+	</root>
+
+</configuration>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+   http://www.liquibase.org/xml/ns/dbchangelog 
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+     
+	<!--TABLES -->
+	<changeSet author="jalva"
+		id="2021-05-28--01-create-route-table">
+		<createTable tableName="route">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="number" type="VARCHAR(31)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="jalva"
+		id="2021-05-28--02-create-ticket-order-table">
+		<createTable tableName="ticket_order">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="departure" type="datetime">
+				<constraints nullable="false" />
+			</column>
+			<column name="route_id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<!--INDEXES -->
+	<changeSet author="jalva" id="2021-05-28--03-add-route-table-number-index">
+		<createIndex indexName="number_idx" tableName="route" unique="true">
+			<column name="number" />
+		</createIndex>
+	</changeSet>
+	
+	<changeSet author="jalva"
+		id="2021-05-28--03-add-ticket-order-table-fk">
+		<addForeignKeyConstraint
+			baseColumnNames="route_id" baseTableName="ticket_order"
+			constraintName="route_fk" deferrable="false"
+			initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+			referencedColumnNames="id" referencedTableName="route" />
+	</changeSet>
+	
+	<!--DATA -->
+	<changeSet author="jalva" id="2021-05-28--03--insert-route-data">
+        <insert tableName="route">
+            <column name="id">1</column>
+            <column name="number">USER</column>
+        </insert>
+        <insert tableName="route">
+            <column name="id">2</column>
+            <column name="number">41</column>
+        </insert>
+        <insert tableName="route">
+            <column name="id">3</column>
+            <column name="number">70</column>
+        </insert>
+        <insert tableName="route">
+            <column name="id">4</column>
+            <column name="number">638Ш</column>
+        </insert>
+        <insert tableName="route">
+            <column name="id">5</column>
+            <column name="number">148Ш</column>
+        </insert>
+    </changeSet>
+     
+</databaseChangeLog>
