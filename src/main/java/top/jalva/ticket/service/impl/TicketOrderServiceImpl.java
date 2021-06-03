@@ -17,6 +17,7 @@ import top.jalva.ticket.service.TicketOrderService;
 
 @Service
 public class TicketOrderServiceImpl implements TicketOrderService {
+	
 	private TicketOrderRepository repo;
 	private RouteRepository routeRepo;
 

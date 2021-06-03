@@ -11,6 +11,7 @@ import top.jalva.ticket.service.RandomStatusProvider;
 
 @Service
 public class RandomStatusProviderImpl implements RandomStatusProvider {
+	
 	private static final int ERROR_MAX_RANDOM_NUMBER = 10;	
 	private static final double ERROR_PROBABILITY = 0.2;
 	private static final int RANDOM_MAX_RANGE_NUMBER = (int)(ERROR_MAX_RANDOM_NUMBER / ERROR_PROBABILITY);	

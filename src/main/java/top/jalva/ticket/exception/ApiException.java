@@ -6,7 +6,7 @@ public class ApiException extends RuntimeException {
 
 	private static final long serialVersionUID = 4637554818196576644L;
 	
-	Optional<Integer> errorCode;
+	Optional<Integer> errorCode = Optional.empty();
 	
 	public ApiException(String message) {
 		super(message);

@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 @JsonPropertyOrder({ "ticket", "info", "error", "errorCode" })
 public class StatusTicketResponse extends ApiResponse {
+	
 	StatusDto ticket;
 	
 	public StatusTicketResponse(StatusDto ticket) {

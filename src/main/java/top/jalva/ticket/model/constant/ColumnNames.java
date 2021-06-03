@@ -7,5 +7,4 @@ public class ColumnNames {
 
 	public static final String ID = "id";
 	public static final String NUMBER = "number";
-
 }

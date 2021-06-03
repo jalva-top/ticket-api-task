@@ -12,6 +12,7 @@ import top.jalva.ticket.exception.ApiException;
 @ToString
 @JsonPropertyOrder({ "ticket", "info", "error", "errorCode" })
 public class IdTicketResponse extends ApiResponse {
+	
 	IdDto ticket;
 	
 	public IdTicketResponse(IdDto ticket) {

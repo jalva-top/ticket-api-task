@@ -7,5 +7,4 @@ public class ApiEntityNotFoundException extends ApiException {
 	public ApiEntityNotFoundException(Integer errorCode, String message) {
 		super(errorCode, message);
 	}
-
 }

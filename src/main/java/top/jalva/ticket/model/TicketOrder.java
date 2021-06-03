@@ -67,6 +67,4 @@ public class TicketOrder {
 		this.departure = departure;
 		this.route = route;
 	}
-	
-	
 }

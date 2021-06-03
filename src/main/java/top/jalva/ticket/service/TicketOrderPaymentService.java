@@ -9,5 +9,4 @@ public interface TicketOrderPaymentService {
 	Optional<TicketOrder> findOldestProcessingTicketOrder();
 
 	TicketOrder pay(long id);
-
 }

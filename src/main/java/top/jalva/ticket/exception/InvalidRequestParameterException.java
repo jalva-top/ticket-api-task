@@ -7,5 +7,4 @@ public class InvalidRequestParameterException extends ApiException {
 	public InvalidRequestParameterException(Integer errorCode, String message) {
 		super(errorCode, message);
 	}
-
 }

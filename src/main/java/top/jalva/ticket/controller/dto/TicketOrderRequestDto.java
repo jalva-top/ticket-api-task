@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class TicketOrderRequestDto {
+	
 	LocalDateTime departureDateTime;
 	String routeNumber;
 }

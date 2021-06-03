@@ -7,5 +7,4 @@ public class IllegalOrderStateException extends ApiException {
 	public IllegalOrderStateException(Integer errorCode, String message) {
 		super(errorCode, message);
 	}
-
 }

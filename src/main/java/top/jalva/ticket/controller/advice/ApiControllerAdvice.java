@@ -15,5 +15,4 @@ public class ApiControllerAdvice {
     public ResponseEntity<IdTicketResponse> handleException(ApiException e) {
         return new ResponseEntity<>(new IdTicketResponse(e), HttpStatus.OK);
     }
-
 }

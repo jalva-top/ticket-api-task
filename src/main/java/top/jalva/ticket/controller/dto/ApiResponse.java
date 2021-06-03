@@ -3,6 +3,7 @@ package top.jalva.ticket.controller.dto;
 import org.springframework.util.StringUtils;
 
 public abstract class ApiResponse {
+	
     protected String info = "";
     protected String error = "";
     protected Integer errorCode;

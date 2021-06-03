@@ -7,5 +7,4 @@ public class PaymentErrorException extends ApiException {
 	public PaymentErrorException(Integer errorCode, String message) {
 		super(errorCode, message);
 	}
-
 }

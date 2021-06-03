@@ -22,6 +22,7 @@ import top.jalva.ticket.service.TicketOrderPaymentService;
 
 @Service
 public class TicketOrderPaymentServiceImpl implements TicketOrderPaymentService {
+	
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
 	private TicketOrderRepository repo;

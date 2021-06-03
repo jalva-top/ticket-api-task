@@ -7,5 +7,4 @@ public interface RandomStatusProvider {
 	PaymentStatus get();
 
 	void setNextValue(PaymentStatus nextValue);
-
 }

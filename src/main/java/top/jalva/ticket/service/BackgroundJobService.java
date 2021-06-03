@@ -5,5 +5,4 @@ public interface BackgroundJobService {
 	void handleTicketOrder();
 
 	void setActive(boolean isActive);
-
 }

@@ -5,6 +5,7 @@ import top.jalva.ticket.model.enums.PaymentStatus;
 
 @Data
 public class StatusDto {
+	
 	long id;
 	PaymentStatus paymentStatus;
 }
