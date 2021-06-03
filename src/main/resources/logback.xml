@@ -80,6 +80,7 @@
 
 	<root level="warn">
 		<appender-ref ref="ERROR_FILE" />
+		<appender-ref ref="CONSOLE" />
 	</root>
 
 </configuration>
